@@ -1,0 +1,57 @@
+<%- include("../partials/filter.ejs") %>
+<div class="products">
+    <% if(typeof(admin) !== 'undefined') { %>
+        <div class="add-item">
+            <img src="/images/add.png" alt="Add item" class="add-image">
+        </div>
+    <% } else if(products.length <= 0) { %>
+        <h1 class="no-items">No items</h1>
+    <% } %>
+    <% products.forEach(product => { %>
+        <div class="product-item" data-id = <%- product.product_id %>>
+            <div class="img-wrapper">
+                <img src="<%= product.image%>" alt="Oops...">            
+            </div>
+            <div class="name"><%= product.name %></div>
+            <div class="product-bottom-row">
+                <div class="price"><%= product.price %>$</div>
+                <% if(typeof(admin) !== 'undefined') { %>
+                    <button class="btn btn-outline-danger remove-button" data-id = <%- product.product_id %>>Remove</button>
+                <% } %>
+            </div>
+        </div>
+    <% }); %>
+    <script>
+        const productItems = document.getElementsByClassName('product-item');
+        if(productItems) {
+            for (const item of productItems) {
+                item.onclick = function(e) {
+                    const event = e || window.event;
+                    const target = event.target || event.srcElement;
+                    if(target.nodeName !== 'BUTTON') {
+                        location.href = `/products/get/${this.dataset.id}`;
+                    }
+                }
+            }
+        }
+        
+        const removeRuttons = document.getElementsByClassName('remove-button');
+        if(removeRuttons) {
+            for (const item of removeRuttons) {
+                item.onclick = function(e) {
+                    const confim = confirm('Are you sure?');
+                    if(confim) {
+                        location.href = `/products/remove/${this.dataset.id}`;
+                    }
+                }
+            }
+        }
+
+        const addItem = document.getElementsByClassName('add-item')[0];
+        if(addItem) {
+            addItem.onclick = function(e) {
+                location.href = `/products/add`;
+            }
+        }
+    </script>
+</div>

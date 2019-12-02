@@ -1,0 +1,26 @@
+<div class="data-form">
+    <h1 class="heading">ADMIN</h1>
+    <form action="/admin" method="post">
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['login']) { %>
+                <p class="error"><%- errors['login'].msg %></p>
+            <% } %>
+            <p class="label-txt">ENTER ADMIN LOGIN</p>
+            <input type="text" class="input" name="login">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['password']) { %>
+                <p class="error"><%- errors['password'].msg %></p>
+            <% } %>
+            <p class="label-txt">ENTER ADMIN PASSWORD</p>
+            <input type="password" class="input" name="password">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <button type="submit">Enter</button>
+    </form>
+</div>

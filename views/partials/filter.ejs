@@ -1,0 +1,45 @@
+<ul class="nav">
+  <li class="nav-item dropdown ml-2">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Order by</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" onclick="orderBy('cheap');">Cheap</a>
+      <a class="dropdown-item" onclick="orderBy('expensive');">Exprensive</a>
+      <a class="dropdown-item" onclick="orderBy('early');">Early</a>
+      <a class="dropdown-item" onclick="orderBy('late');">Late</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Filter</a>
+    <div class="dropdown-menu">
+        <% categories.forEach(category => { %>
+          <a class="dropdown-item filter-link" style="text-transform: capitalize;" data-filter="<%- category.name %>"><%- category.name %></a>
+        <% }); %>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" onclick="filter('all');">All</a>
+    </div>
+  </li>
+</ul>
+
+<script>
+    const url = new URL(window.location.href);
+
+    const filerLinks = document.getElementsByClassName('filter-link');
+    if(filerLinks) {
+      for (const item of filerLinks) {
+        item.onclick = function(e) {
+          filter(item.dataset.filter);
+        }
+      }
+    }
+    
+    function orderBy(type) {
+      if(url.searchParams.has('order')) url.searchParams.delete('order');
+      url.searchParams.append('order', type);
+      location.href = url.href;
+    }
+
+    function filter(type) {
+      if(url.searchParams.has('filter')) url.searchParams.delete('filter');
+      url.searchParams.append('filter', type);
+      location.href = url.href;
+    }
+</script>

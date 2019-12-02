@@ -1,0 +1,60 @@
+<div class="data-form">
+    <h1 class="heading">NEW PRODUCT</h1>
+    <form action="/products/add" method="post">
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['name']) { %>
+                <p class="error"><%- errors['name'].msg %></p>
+            <% } %>
+            <p class="label-txt">PRODUCT NAME</p>
+            <input type="text" class="input" name="name">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['image']) { %>
+                <p class="error"><%- errors['image'].msg %></p>
+            <% } %>
+            <p class="label-txt">IMAGE URL</p>
+            <input type="url" class="input" name="image">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['category']) { %>
+                <p class="error"><%- errors['category'].msg %></p>
+            <% } %>
+            <p class="label-txt">CATEGORY</p>
+            <select name="category" class="input">
+                <% for (let i = 0; i < categories.length; i++) { %>
+                    <option style="text-transform: capitalize;" value=<%= categories[i].name %>><%= categories[i].name %></option>
+                <% } %>
+            </select>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['description']) { %>
+                <p class="error"><%- errors['description'].msg %></p>
+            <% } %>
+            <p class="label-txt">DESCRIPTION</p>
+            <textarea cols="30" rows="10" class="input" name="description" maxlength="2048"></textarea>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['price']) { %>
+                <p class="error"><%- errors['price'].msg %></p>
+            <% } %>
+            <p class="label-txt">PRICE</p>
+            <input type="number" class="input" name="price">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <button type="submit">Add one</button>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex justify-content-between">
+    <a class="navbar-brand" href="/">Online-Shop</a>
+    <ul class="navbar-nav">
+        <% if(typeof(admin) !== 'undefined') { %>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Admin (<%= admin.login %>)
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+        <% } else if(typeof(user) !== 'undefined') { %>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <%= user.name %>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+        <% } else { %>
+            <li class="nav-item">
+                <a class="btn btn-outline-primary mr-2" role="button" href="/register">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary" role="button" href="/login">Sign In</a>
+            </li>
+        <% } %>
+  </ul>
+</nav>

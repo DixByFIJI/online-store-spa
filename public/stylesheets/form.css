@@ -1,0 +1,110 @@
+.data-form form {
+  width: 45%;
+  margin: 10px auto 100px auto;
+  background: #efefef;
+  padding: 60px 120px 80px 120px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+.data-form label {
+  display: block;
+  position: relative;
+  margin: 40px 0px;
+}
+.data-form .label-txt {
+  position: absolute;
+  top: -1.6em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+.data-form .input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-appearance: none;
+}
+
+.data-form .text-area {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.data-form .line-box {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: #BCBCBC;
+}
+
+.data-form .line {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #001f3f;
+  transition: ease .6s;
+}
+
+.data-form .input:focus + .line-box .line {
+  width: 100%;
+}
+
+.data-form .label-active {
+  top: -3em;
+}
+
+.data-form button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+.data-form button:hover {
+  background: #001f3f;
+  color: #ffffff;
+}
+
+.data-form .error {
+  position: absolute;
+  top: -3em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  transition: ease .3s;
+  color: red;
+}
+
+.data-form .heading {
+  margin: 30px auto 0px auto;
+  color: #001f3f; 
+  font-family: 'Raleway',sans-serif; 
+  font-size: 40px; 
+  font-weight: 800; 
+  line-height: 72px;
+  text-align: center; 
+  text-transform: uppercase;
+}

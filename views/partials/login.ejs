@@ -1,0 +1,26 @@
+<div class="data-form">
+    <h1 class="heading">SIGN IN</h1>
+    <form action="/login" method="post">
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['email']) { %>
+                <p class="error"><%- errors['email'].msg %></p>
+            <% } %>
+            <p class="label-txt">ENTER YOUR EMAIL</p>
+            <input type="text" class="input" name="email">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <% if(typeof(errors) !== 'undefined' && errors['password']) { %>
+                <p class="error"><%- errors['password'].msg %></p>
+            <% } %>
+            <p class="label-txt">ENTER YOUR PASSWORD</p>
+            <input type="password" class="input" name="password">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <button type="submit">Sign In</button>
+    </form>
+</div>
