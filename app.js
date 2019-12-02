@@ -28,11 +28,8 @@ app.use('*', (req, res, next) => {
     res.render('pages/error');
 });
 app.use((err, req, res, next) => {
-    if(app.get('env') !== 'prod') {
-        errorHandler(err, req, res, next);
-    } else {
-        res.redirect('/');
-    }
+    console.error(err);
+    res.redirect('/');
 });
 
 app.listen(app.get('port'), _ => {

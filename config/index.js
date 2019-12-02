@@ -2,17 +2,7 @@ const path = require('path');
 const result = require('dotenv').config({ path: path.join(__dirname, '.env')});
 
 const config = {
-    local: {
-        mode: 'local',
-        port: 49150,
-        db_host: 'localhost',
-        db_port: 49140,
-        db_name: 'online-shop',
-        db_user: 'postgres',
-        db_pass: 'QWE123'
-        
-    },
-    environment: {
+    env: {
         mode: 'env',
         port: process.env.PORT,
         db_host: process.env.DATABASE_HOST,
@@ -25,5 +15,5 @@ const config = {
 
 module.exports = function(mode) {
     if(result.error) console.error('An error\'s occured while loading .env configuration file', result.error);
-    return config[mode || process.argv[2] || 'local'] || config.local;
+    return config[mode || process.argv[2] || 'env'] || config.env;
 }

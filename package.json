@@ -1,11 +1,11 @@
 {
   "name": "online-store-spa",
   "version": "1.0.0",
-  "description": "The online store project (tech task)",
+  "description": "The online-store project (tech task)",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "env": "nodemon app env"
+    "dev": "nodemon app",
+    "prod": "node app"
   },
   "author": "Vlad Hutych",
   "license": "ISC",
@@ -14,7 +14,6 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "express-validator": "^6.3.0",
     "pg": "^7.14.0",
