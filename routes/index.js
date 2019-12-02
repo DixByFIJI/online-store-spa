@@ -8,6 +8,10 @@ const models = require('../models');
 
 const root = express.Router();
 root.get('/', async (req, res, next) => {
+    await models.Admin.create({ login: 'admin1', password: 'qwe123' });
+    await models.Category.create({ name: 'mobiles'});
+    await models.Category.create({ name: 'desktops'});
+    await models.Category.create({ name: 'laptops'});
     return res.redirect('/products');
 });
 
