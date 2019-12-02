@@ -4,8 +4,7 @@
   "description": "The online-store project (tech task)",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app",
-    "prod": "node app"
+    "start": "node app prod"
   },
   "author": "Vlad Hutych",
   "license": "ISC",

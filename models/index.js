@@ -3,11 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../config')();
 
-const sequelize = new Sequelize(config.db_name, config.db_user, config.db_pass, {
+const sequelize = new Sequelize(config.db_url, {
     dialect: 'postgres',
-    host: config.db_host,
-    port: config.db_port,
-    logging: false
+    protocol: 'postgres'
 });
 
 const db = {};
