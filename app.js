@@ -1,7 +1,6 @@
 const express = require('express')
     , bodyParser = require('body-parser')
     , session = require('express-session')
-    , errorHandler = require('errorhandler')()
     , config = require('./config')()
     , routes = require('./routes');
 
