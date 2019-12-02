@@ -4,6 +4,7 @@ const fs = require('fs');
 const config = require('../config')();
 
 const sequelize = new Sequelize(config.db_url, {
+    ssl: config.ssl,
     dialect: 'postgres',
     protocol: 'postgres'
 });
