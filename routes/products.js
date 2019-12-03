@@ -67,7 +67,7 @@ productsRouter
         const products = filter === 'all' || !category ?
             await models.Product.findAll({
                 raw: true, 
-                limit: 10,
+                limit: 20,
                 order: [
                     order === 'cheap' ? ['price', 'ASC'] :
                     order === 'expensive' ? ['price', 'DESC'] :
@@ -77,7 +77,7 @@ productsRouter
             }) :
             await category.getProducts({
                 raw: true, 
-                limit: 10,
+                limit: 20,
                 order: [
                     order === 'cheap' ? ['price', 'ASC'] :
                     order === 'expensive' ? ['price', 'DESC'] :
