@@ -26,7 +26,7 @@
                 <p class="error"><%- errors['category'].msg %></p>
             <% } %>
             <p class="label-txt">CATEGORY</p>
-            <select name="category" class="input">
+            <select name="category" class="input" style="text-transform: capitalize;">
                 <% for (let i = 0; i < categories.length; i++) { %>
                     <option style="text-transform: capitalize;" value=<%= categories[i].name %>><%= categories[i].name %></option>
                 <% } %>
