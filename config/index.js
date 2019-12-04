@@ -1,11 +1,13 @@
 /* eslint-disable no-undef */
 
 const config = {
-    prod: {
+    prod: {        
         mode: 'prod',
         port: process.env.PORT,
         db_url: process.env.DATABASE_URL,
         ssl: true,
+        session_secret: 'asdadspiasdyoaya',
+        session_name: 'sid'
     }
 }
 
