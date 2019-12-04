@@ -4,10 +4,9 @@ const register = require('./register');
 const login = require('./login');
 const logout = require('./logout');
 const products = require('./products');
-const m = require('../models');
 
 const root = express.Router();
-root.get('/', async (req, res) => {
+root.get('/', (req, res) => {
     return res.redirect('/products');
 });
 

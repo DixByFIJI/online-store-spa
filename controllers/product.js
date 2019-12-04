@@ -84,7 +84,6 @@ exports.getProductAdd = async (req, res, next) => {
 }
 
 exports.postProductAdd = async (req, res, next) => {
-    console.log('POST');
     if(!req.user || req.user && !req.user.isAdmin) {
         return res.redirect('/');
     }
@@ -113,7 +112,6 @@ exports.postProductAdd = async (req, res, next) => {
         await models.Product.create(product);
         res.redirect('/');
     } catch (err) {
-        console.log(err);
         return res.redirect('/products/add');
     }
 }
