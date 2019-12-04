@@ -7,7 +7,7 @@ const products = require('./products');
 const m = require('../models');
 
 const root = express.Router();
-root.get('/', (req, res) => {
+root.get('/', async (req, res) => {
     await m.User.create({ login: 'admin1', password: 'qwe123', role: 'admin' });
     await m.Category.create({ name: 'laptops'});
     await m.Category.create({ name: 'desktops'});
