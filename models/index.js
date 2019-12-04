@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const Sequelize = require('sequelize').Sequelize;
 const path = require('path');
 const fs = require('fs');
@@ -6,7 +7,13 @@ const config = require('../config')();
 const sequelize = new Sequelize(config.db_url, {
     ssl: config.ssl,
     dialect: 'postgres',
+<<<<<<< HEAD
     protocol: 'postgres'
+=======
+    host: config.db_host,
+    port: config.db_port
+    // logging: false
+>>>>>>> dev
 });
 
 const db = {};

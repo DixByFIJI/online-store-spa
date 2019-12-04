@@ -1,6 +1,6 @@
 <%- include("../partials/filter.ejs") %>
 <div class="products">
-    <% if(typeof(admin) !== 'undefined') { %>
+    <% if(typeof(user) !== 'undefined' && user.isAdmin) { %>
         <div class="add-item">
             <img src="/images/add.png" alt="Add item" class="add-image">
         </div>
@@ -15,7 +15,7 @@
             <div class="name"><%= product.name %></div>
             <div class="product-bottom-row">
                 <div class="price"><%= product.price %>$</div>
-                <% if(typeof(admin) !== 'undefined') { %>
+                <% if(typeof(user) !== 'undefined' && user.isAdmin) { %>
                     <button class="btn btn-outline-danger remove-button" data-id = <%- product.product_id %>>Remove</button>
                 <% } %>
             </div>
@@ -29,7 +29,7 @@
                     const event = e || window.event;
                     const target = event.target || event.srcElement;
                     if(target.nodeName !== 'BUTTON') {
-                        location.href = `/products/get/${this.dataset.id}`;
+                        location.href = `/products/${this.dataset.id}`;
                     }
                 }
             }
