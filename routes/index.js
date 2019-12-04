@@ -6,10 +6,17 @@ const logout = require('./logout');
 const products = require('./products');
 
 const root = express.Router();
-root.get('/', async (req, res) => {
-    return res.redirect('/products');
-});
+root
+    .use('/', (req, res) => {
+        return res.redirect('/products');
+    })
+    .use('/admin', admin)
+    .use('/products', products)
+    .use('/register', register)
+    .use('/login', login)
+    .use('/logout', logout)
+    .use('*', (req, res) => {
+        res.render('pages/error');
+    });
 
-module.exports = {
-    root, admin, register, login, logout, products
-}
+module.exports = root;

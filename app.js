@@ -15,15 +15,17 @@ app.use(session({
     saveUninitialized: false
 }));
 
-app.use('/', routes.root);
-app.use('/admin', routes.admin);
-app.use('/products', routes.products)
-app.use('/register', routes.register);
-app.use('/login', routes.login);
-app.use('/logout', routes.logout);
-app.use('*', (req, res, next) => {
-    res.render('pages/error');
-});
+app.use(routes.root);
+
+// app.use('/admin', routes.admin);
+// app.use('/products', routes.products)
+// app.use('/register', routes.register);
+// app.use('/login', routes.login);
+// app.use('/logout', routes.logout);
+// app.use('*', (req, res, next) => {
+//     res.render('pages/error');
+// });
+
 app.use((err, req, res, next) => {
     console.error(err);
     res.redirect('/');
