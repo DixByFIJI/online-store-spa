@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app",
-    "prod": "node app"
+    "prod": "node app prod"
   },
   "author": "Vlad Hutych",
   "license": "ISC",

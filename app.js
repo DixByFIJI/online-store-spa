@@ -10,8 +10,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(session({
-    secret: config.session_secret,
-    name: config.session_name,
     resave: false,
     saveUninitialized: false
 }));
