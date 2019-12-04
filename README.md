@@ -5,6 +5,9 @@ The online-store project (tech task)
 
 https://online-store-spa.herokuapp.com/
 
+Admin credentials: 
+  login: *admin1*, password: *qwe123*
+
 ## Installation
 
   - Download the source code
