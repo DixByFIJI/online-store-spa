@@ -115,7 +115,6 @@ exports.getAdmin = async (req, res) => {
             target: 'admin'
         });
     }
-    console.log('asd');
     res.redirect('/');
 }
 

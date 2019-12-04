@@ -89,7 +89,6 @@ exports.postProductAdd = async (req, res, next) => {
     }
     
     const errors = validationResult(req);
-    console.log(errors.isEmpty);
     if(!errors.isEmpty()) {
         try {
             const categories = await models.Category.findAll({ raw: true });
@@ -116,7 +115,7 @@ exports.postProductAdd = async (req, res, next) => {
     }
 }
 
-exports.getProductRemove = async (req, res, next) => {
+exports.getProductRemove = async (req, res) => {
     if(!req.user || req.user && !req.user.isAdmin) {
         return res.redirect('/');
     }
