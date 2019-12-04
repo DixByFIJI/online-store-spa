@@ -24,7 +24,7 @@ fs
     });
 
     db.Category.hasMany(db.Product, { as: 'Products', foreignKey: 'category' });
-sequelize.sync({ force: true })
+sequelize.sync()
     .catch((err) => console.error('[SEQUELIZE]:\n', err));
 
 db.sequelize = sequelize;
