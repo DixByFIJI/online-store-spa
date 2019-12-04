@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex justify-content-between">
     <a class="navbar-brand" href="/">Online-Shop</a>
     <ul class="navbar-nav">
-        <% if(typeof(admin) !== 'undefined') { %>
+        <% if(typeof(user) !== 'undefined' && user.isAdmin) { %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Admin (<%= admin.login %>)
+                    Admin (<%= user.login %>)
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/logout">Logout</a>
@@ -13,7 +13,7 @@
         <% } else if(typeof(user) !== 'undefined') { %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <%= user.name %>
+                    <%= user.login %>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/logout">Logout</a>

@@ -16,7 +16,7 @@
                 <p class="error"><%- errors['image'].msg %></p>
             <% } %>
             <p class="label-txt">IMAGE URL</p>
-            <input type="url" class="input" name="image">
+            <input type="url" class="input" name="image" maxlength="2048">
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -26,7 +26,7 @@
                 <p class="error"><%- errors['category'].msg %></p>
             <% } %>
             <p class="label-txt">CATEGORY</p>
-            <select name="category" class="input">
+            <select name="category" class="input" style="text-transform: capitalize;">
                 <% for (let i = 0; i < categories.length; i++) { %>
                     <option style="text-transform: capitalize;" value=<%= categories[i].name %>><%= categories[i].name %></option>
                 <% } %>

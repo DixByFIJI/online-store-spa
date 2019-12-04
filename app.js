@@ -1,19 +1,17 @@
 const express = require('express')
     , bodyParser = require('body-parser')
     , session = require('express-session')
-    , errorHandler = require('errorhandler')()
     , config = require('./config')()
     , routes = require('./routes');
 
 const app = express();
-app.set('port', config.port);
-app.set('env', config.mode);
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(session({
-    secret: 'paduihwpirbandmoahwypaw',
+    secret: config.session_secret,
+    name: config.session_name,
     resave: false,
     saveUninitialized: false
 }));
@@ -32,6 +30,6 @@ app.use((err, req, res, next) => {
     res.redirect('/');
 });
 
-app.listen(app.get('port'), _ => {
-    console.log(`Express server's started on port: ${app.get('port')}...`);
+app.listen(config.port, _ => {
+    console.log(`Express server's started on port: ${config.port}...`);
 });
