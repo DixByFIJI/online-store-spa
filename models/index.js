@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../config')();
 
-
 const sequelize = config.mode !== 'prod' ?
     new Sequelize(config.db_name, config.db_user, config.db_pass, {
         dialect: config.db_dialect,
