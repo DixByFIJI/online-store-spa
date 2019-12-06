@@ -4,12 +4,16 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../config')();
 
-const sequelize = new Sequelize(config.db_name, config.db_user, config.db_pass, {
-    dialect: 'postgres',
-    host: config.db_host,
-    port: config.db_port
-    // logging: false
-});
+const sequelize = config.mode !== 'prod' ?
+    new Sequelize(config.db_name, config.db_user, config.db_pass, {
+        dialect: config.db_dialect,
+        host: config.db_host,
+        port: config.db_port
+    }) :
+    new Sequelize(config.db_url, {
+        dialect: config.db_dialect,
+        protocol: config.db_protocol
+    });
 
 const db = {};
 const currentFile = path.basename(__filename);
