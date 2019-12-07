@@ -102,6 +102,7 @@ exports.getLogout = async (req, res, next) => {
         if(err) {
             return next(err);
         }
+        res.clearCookie(config.session_name);
         res.redirect('/');
     });
 }
