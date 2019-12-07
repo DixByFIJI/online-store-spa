@@ -1,4 +1,5 @@
 # online-store-spa
+# Express + Sequelize (PostgreSQL) + MongoDB
 The online-store project (tech task)
 
 ## Deployed application
