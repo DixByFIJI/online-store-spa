@@ -12,7 +12,8 @@ const sequelize = config.mode !== 'prod' ?
     }) :
     new Sequelize(config.db_url, {
         dialect: config.db_dialect,
-        protocol: config.db_protocol
+        protocol: config.db_protocol,
+        ssl: true
     });
 
 const db = {};
