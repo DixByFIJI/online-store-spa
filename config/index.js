@@ -30,5 +30,6 @@ const config = {
 }
 
 module.exports = function(mode) {
+    console.log(process.argv);
     return config[mode || process.argv[2] || 'dev'] || config.dev;
 }
